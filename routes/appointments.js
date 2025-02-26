@@ -3,7 +3,6 @@ import Appointment from "../models/Appointment.js";
 
 const router = express.Router();
 
-// GET all appointments
 router.get("/", async (req, res) => {
   try {
     const appointments = await Appointment.find();
@@ -13,7 +12,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-// GET appointment by timeSlot
 router.get("/:timeSlot", async (req, res) => {
   try {
     const { timeSlot } = req.params;
@@ -27,7 +25,6 @@ router.get("/:timeSlot", async (req, res) => {
   }
 });
 
-// POST - Create or update appointment
 router.post("/", async (req, res) => {
   try {
     const { timeSlot, firstName, lastName, phoneNumber } = req.body;
@@ -50,7 +47,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-// DELETE - Clear appointment
 router.delete("/:timeSlot", async (req, res) => {
   try {
     const { timeSlot } = req.params;
